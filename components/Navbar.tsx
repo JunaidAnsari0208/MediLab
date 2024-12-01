@@ -1,12 +1,7 @@
-import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Stethoscope } from "lucide-react";
 import Link from "next/link";
+import { LoginButton } from "./auth/login-button";
 import { Button } from "./ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 
 const Navbar = () => {
   return (
@@ -43,25 +38,9 @@ const Navbar = () => {
           >
             Contact
           </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-4">
-                Login / Sign Up
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                <Link href="/login" className="w-full">
-                  Login
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/signup" className="w-full">
-                  Sign Up
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <LoginButton>
+            <Button className="w-full">Login/Sign Up</Button>
+          </LoginButton>
         </nav>
       </header>
     </div>
