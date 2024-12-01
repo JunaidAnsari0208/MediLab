@@ -3,11 +3,11 @@
  * If you want to add a new route, you can add it to the list.
  */
 
-export const publicRoutes = ["/", "/settings"];
+export const publicRoutes = ["/", "/auth/new-verification"];
 /**
  * These are routes that are protected and require authentication.
  */
-export const authRoutes = ["/login", "/signup"];
+export const authRoutes = ["/login", "/signup", "/error"];
 /**
  * The prefix for API authentication routes.
  * Routes that start with this prefix are used for API authentication purposes.

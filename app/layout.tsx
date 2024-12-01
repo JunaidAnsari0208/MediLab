@@ -1,5 +1,7 @@
+import { auth } from "@/auth";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,19 +22,22 @@ export const metadata: Metadata = {
     "MediLab is a platform for managing medical records, patient information, and more.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </SessionProvider>
   );
 }
